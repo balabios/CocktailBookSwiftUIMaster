@@ -32,8 +32,8 @@ CocktailBookSwiftUIMaster
 ## Requirements
 
 - Xcode 15 or later
-- Swift 5.9 or later
-- iOS 17 or later
+- Swift 5 or later
+- iOS 18.2 or later
 
 ## Installation
 
