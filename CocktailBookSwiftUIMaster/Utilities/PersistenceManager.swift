@@ -11,15 +11,17 @@ import Foundation
 
 class PersistenceManager {
     static let shared = PersistenceManager()
-
+    private init() {}
+    
     private let favoritesKey = "favorites"
-
+    private let defaults = UserDefaults.standard
+    
     func saveFavorites(_ favorites: Set<String>) {
-        UserDefaults.standard.set(Array(favorites), forKey: favoritesKey)
+        defaults.set(Array(favorites), forKey: favoritesKey)
     }
 
     func loadFavorites() -> Set<String> {
-        let favorites = UserDefaults.standard.array(forKey: favoritesKey) as? [String] ?? []
+        let favorites = defaults.array(forKey: favoritesKey) as? [String] ?? []
         return Set(favorites)
     }
 }

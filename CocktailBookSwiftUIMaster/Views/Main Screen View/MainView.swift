@@ -14,53 +14,89 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Picker("Filter", selection: $viewModel.filterType) {
-                    Text("All").tag(CocktailViewModel.FilterType.all)
-                    Text("Alcoholic").tag(CocktailViewModel.FilterType.alcoholic)
-                    Text("Non-Alcoholic").tag(CocktailViewModel.FilterType.nonAlcoholic)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                .onChange(of: viewModel.filterType) { newFilterType, _ in
-                    viewModel.updateFilteredCocktails()
-                }
-                
-                if viewModel.cocktails.isEmpty && viewModel.errorMessage == nil {
-                    // Show a ProgressView while loading
-                    ProgressView("Loading Cocktails...")
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                } else if let errorMessage = viewModel.errorMessage {
-                    // Show the error message if there is one
-                    Text(errorMessage)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                } else {
-                    List(viewModel.filteredCocktails) { cocktail in
-                        NavigationLink(destination: DetailView(cocktail: cocktail, viewModel: viewModel)) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(cocktail.name)
-                                        .font(.headline)
-                                        .foregroundColor(viewModel.favoriteCocktails.contains(cocktail.id) ? .purple : .primary)
-                                    Text(cocktail.shortDescription)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                                Spacer()
-                                if viewModel.favoriteCocktails.contains(cocktail.id) {
-                                    Image(systemName: "heart.fill")
-                                        .foregroundColor(.purple)
-                                }
-                            }
-                        }
-                    }
-                    .listStyle(PlainListStyle())
-                }
+                filterPicker
+                contentView
             }
             .navigationTitle(viewModel.filterType.rawValue)
+        }
+    }
+    
+    // MARK: - Subviews
+    
+    private var filterPicker: some View {
+        Picker("Filter", selection: $viewModel.filterType) {
+            Text("All").tag(CocktailViewModel.FilterType.all)
+            Text("Alcoholic").tag(CocktailViewModel.FilterType.alcoholic)
+            Text("Non-Alcoholic").tag(CocktailViewModel.FilterType.nonAlcoholic)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding()
+        .onChange(of: viewModel.filterType) { newFilterType, _ in
+            viewModel.updateFilteredCocktails()
+        }
+    }
+    
+    @ViewBuilder
+    private var contentView: some View {
+        if viewModel.cocktails.isEmpty && viewModel.errorMessage == nil {
+            loadingView
+        } else if let errorMessage = viewModel.errorMessage {
+            errorView(message: errorMessage)
+        } else {
+            cocktailsListView
+        }
+    }
+    
+    private var loadingView: some View {
+        ProgressView("Loading Cocktails...")
+            .foregroundColor(.gray)
+            .multilineTextAlignment(.center)
+            .padding()
+    }
+    
+    private func errorView(message: String) -> some View {
+        Text(message)
+            .foregroundColor(.red)
+            .multilineTextAlignment(.center)
+            .padding()
+    }
+    
+    private var cocktailsListView: some View {
+        List(viewModel.filteredCocktails) { cocktail in
+            NavigationLink(destination: DetailView(
+                cocktail: cocktail,
+                viewModel: viewModel,
+                backText: viewModel.filterType.rawValue
+            )) {
+                CocktailRow(
+                    cocktail: cocktail,
+                    isFavorite: viewModel.favoriteCocktails.contains(cocktail.id)
+                )
+            }
+        }
+        .listStyle(PlainListStyle())
+    }
+}
+
+struct CocktailRow: View {
+    let cocktail: Cocktail
+    let isFavorite: Bool
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(cocktail.name)
+                    .font(.headline)
+                    .foregroundColor(isFavorite ? .purple : .primary)
+                Text(cocktail.shortDescription)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            Spacer()
+            if isFavorite {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.purple)
+            }
         }
     }
 }
