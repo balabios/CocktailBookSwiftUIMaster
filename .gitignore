@@ -1,0 +1,12 @@
+# Xcode
+.DS_Store
+build/
+DerivedData
+*.xccheckout
+*.xcworkspace
+!default.xcworkspace
+*.xcuserstate
+*.xcuserdata
+*.xcscheme
+*.framework
+*.dSYM
