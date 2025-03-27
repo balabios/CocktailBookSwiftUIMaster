@@ -7,7 +7,7 @@
 
 import XCTest
 import Combine
-import CocktailsAPIStaticLib
+import CocktailsAPIPackage
 
 @testable import CocktailBookSwiftUIMaster
 

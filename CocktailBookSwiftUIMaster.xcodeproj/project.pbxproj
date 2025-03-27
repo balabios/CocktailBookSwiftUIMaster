@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B0909A92D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0909A82D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a */; };
-		6B1396C62D5362A10012EE2D /* libCocktailsAPIStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0909A82D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a */; };
+		6B24CB502D953ED50083CBF9 /* CocktailsAPIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,25 +31,11 @@
 		6B0909492D5328AE007CA1F6 /* CocktailBookSwiftUIMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailBookSwiftUIMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0909592D5328AF007CA1F6 /* CocktailBookSwiftUIMasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailBookSwiftUIMasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B0909632D5328B0007CA1F6 /* CocktailBookSwiftUIMasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailBookSwiftUIMasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B0909A82D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocktailsAPIStaticLib.a; path = CocktailsAPIStaticLib/libCocktailsAPIStaticLib.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6B0909B02D533646007CA1F6 /* Exceptions for "CocktailBookSwiftUIMaster" folder in "CocktailBookSwiftUIMasterTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/sample.json,
-			);
-			target = 6B0909582D5328AF007CA1F6 /* CocktailBookSwiftUIMasterTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6B09094B2D5328AE007CA1F6 /* CocktailBookSwiftUIMaster */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6B0909B02D533646007CA1F6 /* Exceptions for "CocktailBookSwiftUIMaster" folder in "CocktailBookSwiftUIMasterTests" target */,
-			);
 			path = CocktailBookSwiftUIMaster;
 			sourceTree = "<group>";
 		};
@@ -71,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B0909A92D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a in Frameworks */,
+				6B24CB502D953ED50083CBF9 /* CocktailsAPIPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B1396C62D5362A10012EE2D /* libCocktailsAPIStaticLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +101,6 @@
 		6B0909942D532A56007CA1F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6B0909A82D532DB2007CA1F6 /* libCocktailsAPIStaticLib.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,6 +125,7 @@
 			);
 			name = CocktailBookSwiftUIMaster;
 			packageProductDependencies = (
+				6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */,
 			);
 			productName = CocktailBookSwiftUIMaster;
 			productReference = 6B0909492D5328AE007CA1F6 /* CocktailBookSwiftUIMaster.app */;
@@ -225,6 +209,9 @@
 			);
 			mainGroup = 6B0909402D5328AE007CA1F6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6B24CB532D9553CB0083CBF9 /* XCLocalSwiftPackageReference "../Package/CocktailsAPIPackage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6B09094A2D5328AE007CA1F6 /* Products */;
 			projectDirPath = "";
@@ -610,6 +597,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6B24CB532D9553CB0083CBF9 /* XCLocalSwiftPackageReference "../Package/CocktailsAPIPackage" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Package/CocktailsAPIPackage;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CocktailsAPIPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B0909412D5328AE007CA1F6 /* Project object */;
 }

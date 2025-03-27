@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import CocktailsAPIStaticLib
+import CocktailsAPIPackage
 
 class CocktailViewModel: ObservableObject {
     @Published var cocktails: [Cocktail] = []
