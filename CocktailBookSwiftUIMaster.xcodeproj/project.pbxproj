@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B24CB502D953ED50083CBF9 /* CocktailsAPIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */; };
+		6BA2202E2D95676D00754AAE /* CocktailsAPIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6BA2202D2D95676D00754AAE /* CocktailsAPIPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA2202E2D95676D00754AAE /* CocktailsAPIPackage in Frameworks */,
 				6B24CB502D953ED50083CBF9 /* CocktailsAPIPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +128,7 @@
 			name = CocktailBookSwiftUIMaster;
 			packageProductDependencies = (
 				6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */,
+				6BA2202D2D95676D00754AAE /* CocktailsAPIPackage */,
 			);
 			productName = CocktailBookSwiftUIMaster;
 			productReference = 6B0909492D5328AE007CA1F6 /* CocktailBookSwiftUIMaster.app */;
@@ -210,7 +213,7 @@
 			mainGroup = 6B0909402D5328AE007CA1F6;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6B24CB532D9553CB0083CBF9 /* XCLocalSwiftPackageReference "../Package/CocktailsAPIPackage" */,
+				6BA2202C2D95676D00754AAE /* XCRemoteSwiftPackageReference "CocktailsAPIPackage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6B09094A2D5328AE007CA1F6 /* Products */;
@@ -426,15 +429,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/CocktailsAPIStaticLib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.movoto.CocktailBookSwiftUIMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CocktailsAPIStaticLib";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,15 +461,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/CocktailsAPIStaticLib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.movoto.CocktailBookSwiftUIMaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CocktailsAPIStaticLib";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -598,16 +595,25 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		6B24CB532D9553CB0083CBF9 /* XCLocalSwiftPackageReference "../Package/CocktailsAPIPackage" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Package/CocktailsAPIPackage;
+/* Begin XCRemoteSwiftPackageReference section */
+		6BA2202C2D95676D00754AAE /* XCRemoteSwiftPackageReference "CocktailsAPIPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/balabios/CocktailsAPIPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		6B24CB4F2D953ED50083CBF9 /* CocktailsAPIPackage */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = CocktailsAPIPackage;
+		};
+		6BA2202D2D95676D00754AAE /* CocktailsAPIPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BA2202C2D95676D00754AAE /* XCRemoteSwiftPackageReference "CocktailsAPIPackage" */;
 			productName = CocktailsAPIPackage;
 		};
 /* End XCSwiftPackageProductDependency section */

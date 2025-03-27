@@ -10,3 +10,7 @@ DerivedData
 *.xcscheme
 *.framework
 *.dSYM
+*.a
+*.swiftmodule
+*.swiftdoc
+*.swiftsourceinfo
