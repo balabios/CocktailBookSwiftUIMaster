@@ -40,7 +40,7 @@ CocktailBookSwiftUIMaster
 Clone the repository and open it in Xcode:
 
 ```bash
-git clone https://github.com/your-username/CocktailBookSwiftUIMaster.git
+git clone https://github.com/balabios/CocktailBookSwiftUIMaster.git
 cd CocktailBookSwiftUIMaster
 open CocktailBookSwiftUIMaster.xcodeproj
 ```
